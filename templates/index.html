@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DrDoc - Analyze Your Medical Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DrDoc - Analyze Your Medical Report</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="api_key">Input Data:</label>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="text_input" name="input_type" value="text" checked>
+                <label class="form-check-label" for="text_input">Text Report</label>
+                <textarea class="form-control" id="text_input" name="text_input" rows="5"></textarea>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="image_input" name="input_type" value="image">
+                <label class="form-check-label" for="image_input">Image Report</label>
+                <input type="file" class="form-control-file" id="image_input" name="image_input">
+            </div>
+
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="pdf_input" name="input_type" value="pdf">
+                <label class="form-check-label" for="pdf_input">PDF Report</label>
+                <input type="file" class="form-control-file" id="pdf_input" name="pdf_input">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Analyze</button>
+        </form>
+
+        <h2>Analysis:</h2>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">{{ result|safe }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
